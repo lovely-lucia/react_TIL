@@ -12,6 +12,9 @@ function App() {
   let [따봉, 따봉변경] = useState(0);
   let posts = '강남 고기 맛집';
 
+  let [modal, modal변경] = useState(false);
+
+
   /* function 제목바꾸기 (){
     var newArray = [...글제목];
     newArray[0] = '여자코트 추천';
@@ -38,7 +41,25 @@ function App() {
         <p>2월 17일 발행</p>
         <hr/>
       </div>
-      <Modal />
+      <button onClick={ () => {modal변경(!modal)} }> 모달 팝업</button>
+      
+      {
+        modal === true 
+        ? <Modal /> 
+        : null
+      } 
+       
+      {
+        글제목.map(function(글){
+          return (
+            <div className="list">
+              <h3> { 글 } </h3>
+              <p>2월 17일 발행</p>
+              <hr/>
+            </div>
+          )
+        })
+      }
     </div>
   );
 }
