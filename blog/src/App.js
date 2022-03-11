@@ -5,6 +5,7 @@ import './App.css';
 function App() {
 
   let [글제목, 글제목변경] = useState (['강남 맛집', '강남 핫플레이스', '강남 옷가게']);
+  let [모달, 모달변경] = useState ();
 
   return (
     <div className="App">
@@ -20,5 +21,8 @@ function App() {
   );
 }
 
+function detail() {
+
+}
 
 export default App;
