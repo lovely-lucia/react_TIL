@@ -8,7 +8,7 @@ function App() {
   let [따봉, 따봉변경] = useState(0); 
   let [modal, modal변경] = useState (0);
   let [누른제목, 누른제목변경] = useState(0);
-
+  let [입력값, 입력값변경] = useState('');
 
   return (
     <div className="App">
@@ -48,6 +48,11 @@ function App() {
           })
         }
       </div>
+
+      { 입력값 }
+      <input onChange={ (e)=>{ 입력값변경(e.target.value)  } } />
+
+
         <button onClick={ ()=>{modal변경(!modal)} }> 열고닫기 </button>
       { 
         modal === true
