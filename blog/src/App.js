@@ -51,7 +51,7 @@ function App() {
 
       { 입력값 }
       <input onChange={ (e)=>{ 입력값변경(e.target.value)  } } />
-
+        <button onClick></button>
 
         <button onClick={ ()=>{modal변경(!modal)} }> 열고닫기 </button>
       { 
