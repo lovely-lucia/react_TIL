@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React, {useState} from 'react';
 import './App.css';
 import { Navbar, Container, Nav, NavDropdown, Carousel } from 'react-bootstrap';
@@ -75,8 +77,7 @@ function App() {
             <div className='col-md-4'>
               <img src='https://codingapple1.github.io/shop/shoes1.jpg' width='100%' alt='신발이미지'/>
               <h3> { shoes.title }</h3>
-              <p> { shoes.content } </p>
-              <p> { shoes.price } </p>
+              
             </div>
           )
         })
