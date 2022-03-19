@@ -77,7 +77,7 @@ function App() {
             <div className='col-md-4'>
               <img src='https://codingapple1.github.io/shop/shoes1.jpg' width='100%' alt='신발이미지'/>
               <h3> { shoes.title }</h3>
-              <p> { shoes.content } & { shoes.price } </p>
+              
             </div>
           )
         })
