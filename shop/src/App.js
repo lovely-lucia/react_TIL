@@ -61,10 +61,7 @@ function App() {
         <div className='row'>
           <h3>MD PICK</h3>
           
-          <div className='col-md-4'>
-            <img src='https://codingapple1.github.io/shop/shoes2.jpg' width='100%' alt='신발이미지'/>
-            <h3> { shoes[1].title }</h3>
-          </div>
+          <Card />
           <div className='col-md-4'>
             <img src='https://codingapple1.github.io/shop/shoes3.jpg' width='100%' alt='신발이미지'/>
             <h3> { shoes[2].title }</h3>
@@ -86,6 +83,16 @@ function App() {
     
     </div>
   );
+}
+
+function Card(){
+  return (
+    <div className='col-md-4'>
+      <img src='https://codingapple1.github.io/shop/shoes2.jpg' width='100%' alt='신발이미지'/>
+      <h3> { shoes[0].title } </h3>
+      <p>{ { shoes[0].content } & { shoes[0].price } }</p>
+    </div>
+  )
 }
 
 export default App;
