@@ -70,14 +70,14 @@ function App() {
         </div>
       </div>
       {
-        shoes.map(() => {
+        shoes.map((shoes) => {
           return (
-          <div className='col-md-4'>
-            <img src='https://codingapple1.github.io/shop/shoes1.jpg' width='100%' alt='신발이미지'/>
-            <h3> { shoes[0].title }</h3>
-            <p> { shoes[0].content } </p>
-            <p> { shoes[0].price } </p>
-          </div>
+            <div className='col-md-4'>
+              <img src='https://codingapple1.github.io/shop/shoes1.jpg' width='100%' alt='신발이미지'/>
+              <h3> { shoes.title }</h3>
+              <p> { shoes.content } </p>
+              <p> { shoes.price } </p>
+            </div>
           )
         })
 
