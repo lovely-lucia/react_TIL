@@ -4,7 +4,7 @@ import React, {useState} from 'react';
 import './App.css';
 import { Navbar, Container, Nav, NavDropdown, Carousel } from 'react-bootstrap';
 import Data from './data.js';
-import { BrowserRouter as Router, Link, Route, Routes, Switch } from 'react-router-dom';
+import { BrowserRouter as Link, Route, Switch } from 'react-router-dom';
 import Detail from './Detail.js';
 
 function App() {
@@ -37,56 +37,56 @@ function App() {
 
       
 
+      <Switch>
+        <Route exact path="/"> 
 
-      <Route exact path="/"> 
+          <Carousel>
+            <Carousel.Item className="background01"> 
+              <Carousel.Caption>
+                <h3>First slide label</h3>
+                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item className="background02">
+              
+              <Carousel.Caption>
+                <h3>Second slide label</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item className="background03">
+              
+              <Carousel.Caption>
+                <h3>Third slide label</h3>
+                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+              </Carousel.Caption>
+            </Carousel.Item>
+          </Carousel>
 
-        <Carousel>
-          <Carousel.Item className="background01"> 
-            <Carousel.Caption>
-              <h3>First slide label</h3>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item className="background02">
-            
-            <Carousel.Caption>
-              <h3>Second slide label</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item className="background03">
-            
-            <Carousel.Caption>
-              <h3>Third slide label</h3>
-              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-        </Carousel>
+          <div className='container mdpick'>
+            <div className='row'>
+              <h3>MD PICK</h3>
 
-        <div className='container mdpick'>
-          <div className='row'>
-            <h3>MD PICK</h3>
-
-            {
-              shoes.map((a,i) => {
-                return <Card shoes={shoes[i]} i={i} key={i}></Card>
-              })
-            }
-            {/* <Card shoes={shoes[0]} />
-            <Card shoes={shoes[1]} />
-            <Card shoes={shoes[2]} /> */}
+              {
+                shoes.map((a,i) => {
+                  return <Card shoes={shoes[i]} i={i} key={i}></Card>
+                })
+              }
+              {/* <Card shoes={shoes[0]} />
+              <Card shoes={shoes[1]} />
+              <Card shoes={shoes[2]} /> */}
+            </div>
           </div>
-        </div>
-      </Route>
+        </Route>
 
-      <Route path='/detail'>
-        <Detail />
-      </Route>
-      
-      <Route path='/:id'>
-        <div>아무거나 적었을 때 이거 보여주셈</div>
-      </Route>
-
+        <Route path='/detail'>
+          <Detail shoes={shoes} />
+        </Route>
+        
+        <Route path='/:id'>
+          <div>아무거나 적었을 때 이거 보여주셈</div>
+        </Route>
+      </Switch>        
     </div>
   );
 }
