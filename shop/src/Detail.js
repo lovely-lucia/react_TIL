@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import './Detail.scss'
@@ -13,7 +13,13 @@ let 제목 = styled.h4`
 `
 
 function Detail(props){
+
+    let [box, box변경] = useState(0);
     
+    // useEffect(()=>{
+    //   setTimeout(()=>{ box변경.delay },2000);
+    // });
+
     let { id } = useParams();
     let history = useHistory();
 
@@ -35,7 +41,8 @@ function Detail(props){
             <h4 className="pt-5">{찾은상품.title}</h4>
             <p>{찾은상품.content}</p>
             <p>{찾은상품.price}원</p>
-            <button className="btn btn-danger">주문하기</button> 
+            <Info 재고={props.재고}></Info>
+            <button className="btn btn-danger" onClick={()=>{ props.재고변경([9,11,12]) }}>주문하기</button> 
             <button className="btn btn-danger" onClick={()=>{
                 history.push('/');
             }}>뒤로가기</button> 
@@ -43,6 +50,13 @@ function Detail(props){
         </div>
     </div>
     ) 
+  }
+
+
+  function Info(props){
+    return(
+      <p>재고 : {props.재고[0]}</p>
+    )
   }
 
   export default Detail
