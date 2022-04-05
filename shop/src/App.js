@@ -1,12 +1,14 @@
 /* eslint-disable */
 
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import './App.css';
 import { Navbar, Container, Nav, NavDropdown, Carousel } from 'react-bootstrap';
 import Data from './data.js';
 import Detail from './Detail.js';
 import axios from 'axios';
 import { BrowserRouter as Link, Route, Switch } from 'react-router-dom';
+
+let 재고context = React.createContext();
 
 function App() {
 
@@ -66,6 +68,9 @@ function App() {
           </Carousel>
 
           <div className='container mdpick'>
+
+            <재고context.Provider value={재고}>
+
             <div className='row'>
               <h3>MD PICK</h3>
 
@@ -93,6 +98,8 @@ function App() {
               <Card shoes={shoes[1]} />
               <Card shoes={shoes[2]} /> */}
             </div>
+
+            </재고context.Provider>
           </div>
         </Route>
 
@@ -112,11 +119,15 @@ function App() {
 
 
 function Card(props){
+
+  let 재고 = useContext(재고context);
+
   return (
     <div className='col-md-4'>
       <img src={ 'https://codingapple1.github.io/shop/shoes' + (props.i + 1) + '.jpg' } width='100%' alt='신발이미지'/>
       <h3> { props.shoes.title } </h3>
       <p> { props.shoes.content } & { props.shoes.price }</p>
+      {재고[props.i]}
     </div>
   )
 }
